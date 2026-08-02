@@ -1,0 +1,15 @@
+@theme {
+  /* Fonts */
+  --font-primary: "manrope", sans-serif;
+  /* --font-secondary: "manrope", sans-serif; */
+
+  /* Color palette */
+  --color-bg: #090909;
+  --color-text: #ffffff;
+  --color-muted: #ffffffc4;
+  --color-font-dark: #111111;
+  --color-accent: #f08370;
+  --color-white: #ffffff;
+  --color-font-dark: #111111;
+  --color-light-gray: #bfc3c9;
+}

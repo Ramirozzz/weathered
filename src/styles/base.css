@@ -1,0 +1,52 @@
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-image: url(../assets/backgrounds/home10.jpg);
+    min-height: 100vh;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--color-text);
+    font-family: var(--font-primary);
+  }
+
+  h1,
+  h3,
+  h4 {
+    font-family: var(--font-primary);
+  }
+
+  h1 {
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: normal;
+    line-height: 1;
+  }
+
+  h2 {
+    font-size: clamp(0.9rem, 0.8rem + 0.8vw, 1.2rem);
+    font-weight: 600;
+    font-family: var(--font-secondary);
+  }
+
+  p {
+    font-size: clamp(1rem, 0.7rem + 0.4vw, 1.1rem);
+    color: var(--color-muted);
+    font-weight: 500;
+    line-height: 1.8;
+  }
+
+  a {
+    font-weight: 500;
+  }
+
+  button {
+    font-weight: 800;
+    /* text-transform: uppercase; */
+
+    cursor: pointer;
+  }
+}
