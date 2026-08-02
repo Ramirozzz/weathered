@@ -1,9 +1,17 @@
+import { Routes, Route } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+import HomePage from "./pages/HomePage";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <h1>Weathered </h1>
+      <div className="absolute inset-0 bg-black/50" />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+        </Route>
+      </Routes>
     </>
   );
 }
