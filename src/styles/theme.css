@@ -5,10 +5,11 @@
 
   /* Color palette */
   --color-bg: #090909;
-  --color-text: #ffffff;
-  --color-muted: #ffffffc4;
+  --color-text: #f0ede6;
+  --color-border: #9698a1;
+  --color-muted: #9698a1;
   --color-font-dark: #111111;
-  --color-accent: #f08370;
+  --color-accent: #7a91b0;
   --color-white: #ffffff;
   --color-font-dark: #111111;
   --color-light-gray: #bfc3c9;
