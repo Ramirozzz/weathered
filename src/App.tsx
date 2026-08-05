@@ -6,7 +6,6 @@ import "./App.css";
 function App() {
   return (
     <>
-      <div className="absolute inset-0 bg-black/50" />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
