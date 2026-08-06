@@ -22,15 +22,25 @@ const SearchBar: React.FC<SearchBarProps> = ({ onCitySelect }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedCitySearch(searchCity.trim());
-    }, 300);
+    }, 200);
 
     return () => clearTimeout(timer);
   }, [searchCity]);
 
+  const handleSubmit = (e: React.SubmitEvent) => {
+    e.preventDefault();
+    if (!cities) return;
+    if (!cities.length) return;
+
+    onCitySelect(cities[0]);
+    setSearchCity("");
+    setDebouncedCitySearch("");
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="relative mx-auto max-w-xl">
-        <div className="flex items-center rounded-md border border-white/15 px-4 py-5 backdrop-blur-md shadow-lg">
+        <div className="flex items-center rounded-md border border-white/15 px-4 py-4 backdrop-blur-md shadow-lg">
           <FiSearch size={25} className="mr-3 text-muted" />
 
           <input
@@ -48,8 +58,21 @@ const SearchBar: React.FC<SearchBarProps> = ({ onCitySelect }) => {
 
         {debouncedCitySearch && !isError && cities && cities.length > 0 && (
           <div className="absolute left-0 top-full z-50 mt-2 w-full">
-            <SearchResults cities={cities} onCitySelect={onCitySelect} />
+            <SearchResults
+              cities={cities}
+              onCitySelect={(city) => {
+                onCitySelect(city);
+                setSearchCity("");
+                setDebouncedCitySearch("");
+              }}
+            />
           </div>
+        )}
+
+        {debouncedCitySearch && !isError && cities && cities.length === 0 && (
+          <p className="mt-2 text-sm font-light text-red-400 tracking-wider ">
+            City not found. Please try another city name
+          </p>
         )}
 
         {isError && (
