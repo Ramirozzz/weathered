@@ -15,20 +15,20 @@ const HomePage = () => {
 
   const {
     data: weather,
-    isLoading,
+    isLoading: isWeatherLoading,
     isError,
   } = useWeather(selectedCity?.lat ?? 0, selectedCity?.lon ?? 0);
 
-  const {
-    data: dailyForecast,
-    // isLoading: forecastLoading,
-  } = useForecast(selectedCity?.lat ?? 0, selectedCity?.lon ?? 0);
+  const { data: dailyForecast, isLoading: isForecastLoading } = useForecast(
+    selectedCity?.lat ?? 0,
+    selectedCity?.lon ?? 0,
+  );
 
   if (!selectedCity) {
     return <Hero onCitySelect={setSelectedCity} />;
   }
 
-  if (isLoading) {
+  if (isWeatherLoading || isForecastLoading) {
     return <CurrentWeatherLoading />;
   }
 
