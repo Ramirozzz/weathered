@@ -1,4 +1,5 @@
 import type {
+  ForecastData,
   CurrentWeatherData,
   WeatherLocation,
 } from "../types/weatherApi.types";
@@ -14,7 +15,7 @@ export const searchCities = async (
       q: city,
     },
   });
-  console.log(res.data);
+
   return res.data;
 };
 
@@ -27,6 +28,21 @@ export const getWeatherData = async (lat: number, lon: number) => {
       lat,
       lon,
       units: "metric",
+    },
+  });
+
+  return res.data;
+};
+
+// Get daily forecast
+
+export const getDailyforecast = async (lat: number, lon: number) => {
+  const res = await api.get<ForecastData>("/data/2.5/forecast", {
+    params: {
+      lat,
+      lon,
+      units: "metric",
+      exclude: "minutely,hourly,alerts",
     },
   });
 
