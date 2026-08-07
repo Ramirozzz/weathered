@@ -7,7 +7,7 @@ interface WeatherConditionProps {
 
 const WeatherCondition: React.FC<WeatherConditionProps> = ({ data }) => {
   return (
-    <div className="flex items-center gap-2 mt-4">
+    <div className="flex items-center md:gap-2 md:mt-2">
       <img
         alt={data.main}
         src={`https://openweathermap.org/img/wn/${data.icon}@2x.png`}

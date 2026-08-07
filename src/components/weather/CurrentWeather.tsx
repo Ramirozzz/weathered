@@ -15,10 +15,10 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({ data, city }) => {
   const condition = data.weather[0];
 
   return (
-    <section className="relative z-10 min-h-[500px] md:min-h-[400px] animate-fade-up-1 pt-50">
-      <div className=" flex justify-between items-center gap-8 ">
-        <div className="py-8">
-          <p className="font-secondary text-muted font-light mb-6 tracking-[0.1em]">
+    <section className="section relative z-10 min-h-[500px] md:min-h-[400px] animate-fade-up-1 pt-50">
+      <div className=" flex flex-col md:flex-row justify-between md:items-center gap-8 ">
+        <div className="flex flex-col gap-6">
+          <p className="text-base text-muted font-light tracking-[0.1em]">
             {date.toLocaleDateString("en-US", {
               weekday: "long",
               day: "numeric",
@@ -31,17 +31,14 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({ data, city }) => {
             <span className="ml-3">{data.sys.country}</span>
           </h1>
 
-          <div className="flex items-center gap-4 mt-6">
-            <span className="drop-shadow-[0_0_12px_rgba(184,212,232,0.4)]">
-              <WeatherCondition data={condition} />
-            </span>
+          <div className="drop-shadow-[0_0_12px_rgba(184,212,232,0.4)]">
+            <WeatherCondition data={condition} />
           </div>
         </div>
-        <div className="text-left md:text-right ">
-          <div className="font-light text-[clamp(5rem,12vw,9rem)] text-text">
-            {Math.round(data.main.temp)}
-            <sup className=" text-[0.28em] align-super text-accent">°C</sup>
-          </div>
+
+        <div className="text-text font-light text-[clamp(4rem,12vw,9rem)]">
+          {Math.round(data.main.temp)}
+          <sup className=" text-[0.28em] align-super text-accent">°C</sup>
         </div>
       </div>
     </section>

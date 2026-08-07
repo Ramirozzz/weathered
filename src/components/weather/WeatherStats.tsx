@@ -53,17 +53,22 @@ const WeatherStats: React.FC<WeatherStatsprops> = ({ data }) => {
   ];
 
   return (
-    <section className="section grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 py-15 gap-3">
-      {stats.map(({ label, value, unit }) => (
-        <div className=" border border-border rounded-sm p-4 bg-card-bg backdrop-blur-sm transition-all duration-300 ">
-          <div className="text-xs text-muted tracking-[0.25em] font-secondary uppercase mb-2">
-            {label}
+    <section className="section animate-fade-up-2">
+      <h2 className="font-secondary text-text text-sm tracking-[0.3em] uppercase mb-4">
+        Stats
+      </h2>
+      <div className=" grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3">
+        {stats.map(({ label, value, unit }) => (
+          <div className=" border border-border rounded-sm p-4 bg-card-bg backdrop-blur-sm transition-all duration-300 ">
+            <div className="text-xs text-muted tracking-[0.25em] font-secondary uppercase mb-3">
+              {label}
+            </div>
+            <div className="text-3xl text-text font-light tracking-tight">
+              {value} <sup className="text-lg text-accent ">{unit}</sup>
+            </div>
           </div>
-          <div className="text-2xl text-text font-light tracking-tight">
-            {value} <span className="text-lg text-accent ">{unit}</span>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </section>
   );
 };
