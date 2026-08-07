@@ -1,22 +1,19 @@
-import React from "react";
 import type { ForecastData } from "../../types/weatherApi.types";
 import { getDailyForecast } from "../../helpers/forecast";
+import { formatForecastDay } from "../../helpers/date";
 
 interface DailyForecastProps {
   forecast: ForecastData;
+  onDaySelect: (date: string) => void;
+  selectedDay: string | null;
 }
 
-const DailyForecast: React.FC<DailyForecastProps> = ({ forecast }) => {
+const DailyForecast: React.FC<DailyForecastProps> = ({
+  forecast,
+  onDaySelect,
+  selectedDay,
+}) => {
   const dailyForecast = getDailyForecast(forecast);
-
-  // Get day name from timestamp
-  const formatDay = (timestamp: number) => {
-    const date = new Date(timestamp * 1000);
-
-    return date.toLocaleDateString("en-US", {
-      weekday: "short",
-    });
-  };
 
   return (
     <section className="section animate-fade-up-3 ">
@@ -25,41 +22,45 @@ const DailyForecast: React.FC<DailyForecastProps> = ({ forecast }) => {
       </h2>
 
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-        {dailyForecast.map((day) => (
-          <div
-            key={day.dt}
-            className="relative overflow-hidden p-3 text-center border border-border rounded-sm bg-card-bg backdrop-blur-sm transition-all duration-300 cursor-default group"
-          >
-            <div className="absolute bottom-0 left-0 right-0 h-[2px] transition-transform duration-300 origin-left" />
-            <div
-              className="absolute bottom-0 left-0 right-0 h-[2px] transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100"
-              style={{
-                background: "linear-gradient(90deg, #c8a96e, #7a91b0)",
-              }}
-            />
-            <></>
-            <div className=" text-xs tracking-[0.2em] uppercase mb-2">
-              {formatDay(day.dt)}
-            </div>{" "}
-            <div className="flex justify-center">
-              <img
-                src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
-                alt={day.weather[0].description}
-              />
-            </div>
-            <div className="text-lg font-light tracking-tight">
-              {Math.round(day.main.temp)}
+        {dailyForecast.map((day) => {
+          const dayDate = day.dt_txt.split(" ")[0];
+          const isActive = dayDate === selectedDay;
 
-              <sup className=" text-sm text-accent "> °C</sup>
+          return (
+            <div
+              key={day.dt}
+              onClick={() => onDaySelect(dayDate)}
+              className={`relative overflow-hidden p-3 text-center border rounded-sm backdrop-blur-sm transition-all duration-300 cursor-pointer group
+              ${isActive ? "border-border bg-white/8" : "border-border bg-card-bg  "}`}
+            >
+              <div
+                className={`absolute bottom-0 left-0 right-0 h-[2px] bg-[linear-gradient(90deg,#c8a96e,#7a91b0)] transition-transform duration-300 origin-left ${isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`}
+              />
+              <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[linear-gradient(90deg,#c8a96e,#7a91b0)] transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100" />
+              <></>
+              <div className=" text-xs tracking-[0.2em] uppercase mb-2">
+                {formatForecastDay(day.dt)}
+              </div>{" "}
+              <div className="flex justify-center">
+                <img
+                  src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
+                  alt={day.weather[0].description}
+                />
+              </div>
+              <div className="text-2xl font-light tracking-tight">
+                {Math.round(day.main.temp)}
+
+                <sup className=" text-sm text-accent"> °C</sup>
+              </div>
+              <div className=" text-xs text-muted mt-2">
+                {day.weather[0].description}
+              </div>
+              <div className="mt-3 h-[2px] rounded-full overflow-hidden">
+                <div className="h-full rounded-full transition-all duration-1000 ease-out" />
+              </div>
             </div>
-            <div className=" text-xs text-accent mt-2">
-              {day.weather[0].description}
-            </div>
-            <div className="mt-3 h-[2px] rounded-full overflow-hidden">
-              <div className="h-full rounded-full transition-all duration-1000 ease-out" />
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
