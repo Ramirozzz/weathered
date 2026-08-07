@@ -8,7 +8,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onCitySelect }) => {
   return (
-    <section className="relative h-[720px] overflow-hidden md:h-screen">
+    <section className="relative h-[720px] overflow-hidden md:h-screen animate-fade-in">
       <div className="relative z-10 flex h-full items-center justify-center px-4 pt-8 md:px-8 lg:px-30 lg:pt-16">
         <div className="max-w-4xl text-center">
           <h1 className="mb-6">Your Daily Weather</h1>

@@ -57,7 +57,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onCitySelect }) => {
         </div>
 
         {debouncedCitySearch && !isError && cities && cities.length > 0 && (
-          <div className="absolute left-0 top-full z-50 mt-2 w-full">
+          <div className="absolute left-0 top-full !z-50 mt-2 w-full">
             <SearchResults
               cities={cities}
               onCitySelect={(city) => {
@@ -70,7 +70,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onCitySelect }) => {
         )}
 
         {debouncedCitySearch && !isError && cities && cities.length === 0 && (
-          <p className="mt-2 text-sm font-light text-red-400 tracking-wider ">
+          <p className="text-sm font-light text-red-400 tracking-wider mt-2">
             City not found. Please try another city name
           </p>
         )}
