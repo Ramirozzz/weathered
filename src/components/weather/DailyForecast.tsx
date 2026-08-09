@@ -21,7 +21,7 @@ const DailyForecast: React.FC<DailyForecastProps> = ({
         5-Day Outlook
       </h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+      <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
         {dailyForecast.map((day) => {
           const dayDate = day.dt_txt.split(" ")[0];
           const isActive = dayDate === selectedDay;
@@ -30,7 +30,7 @@ const DailyForecast: React.FC<DailyForecastProps> = ({
             <div
               key={day.dt}
               onClick={() => onDaySelect(dayDate)}
-              className={`relative overflow-hidden p-3 text-center border rounded-sm backdrop-blur-sm transition-all duration-300 cursor-pointer group
+              className={`relative overflow-hidden p-5 text-center border rounded-sm backdrop-blur-sm transition-all duration-300 cursor-pointer group
               ${isActive ? "border-border bg-white/8" : "border-border bg-card-bg  "}`}
             >
               <div
@@ -50,14 +50,14 @@ const DailyForecast: React.FC<DailyForecastProps> = ({
               <div className="text-2xl font-light tracking-tight">
                 {Math.round(day.main.temp)}
 
-                <sup className=" text-sm text-accent"> °C</sup>
+                <sup className="text-sm text-accent"> °C</sup>
               </div>
               <div className=" text-xs text-muted mt-2">
                 {day.weather[0].description}
               </div>
-              <div className="mt-3 h-[2px] rounded-full overflow-hidden">
+              {/* <div className="mt-3 h-[2px] rounded-full overflow-hidden">
                 <div className="h-full rounded-full transition-all duration-1000 ease-out" />
-              </div>
+              </div> */}
             </div>
           );
         })}

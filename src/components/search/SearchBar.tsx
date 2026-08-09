@@ -40,7 +40,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onCitySelect }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="relative mx-auto max-w-xl">
-        <div className="flex items-center rounded-md border border-white/15 px-4 py-4 backdrop-blur-md shadow-lg">
+        <div className="flex items-center rounded-md border border-white/15 px-4 py-3 md:py-4 backdrop-blur-md shadow-lg">
           <FiSearch size={25} className="mr-3 text-muted" />
 
           <input

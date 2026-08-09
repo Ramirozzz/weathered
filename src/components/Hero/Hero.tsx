@@ -13,7 +13,7 @@ const Hero: React.FC<HeroProps> = ({ onCitySelect }) => {
         <div className="max-w-4xl text-center">
           <h1 className="mb-6">Your Daily Weather</h1>
 
-          <p className="mx-auto max-w-sm md:max-w-2xl text-xl leading-relaxed mb-12 ">
+          <p className="mx-auto max-w-sm md:max-w-2xl md:text-xl leading-relaxed mb-12 ">
             Get weathered with real-time forecasts, hourly updates, and weather
             conditions wherever you are.
           </p>
