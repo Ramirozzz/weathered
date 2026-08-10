@@ -1,0 +1,24 @@
+/* Slider styling */
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--color-font);
+  transition: all 0.25s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: var(--color-accent);
+}
+
+.swiper-button-disabled {
+  pointer-events: auto !important;
+}
+
+@media screen and (max-width: 800px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 30px;
+    height: 30px;
+  }
+}
