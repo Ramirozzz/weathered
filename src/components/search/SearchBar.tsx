@@ -22,15 +22,15 @@ const SearchBar: React.FC<SearchBarProps> = ({ onCitySelect }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedCitySearch(searchCity.trim());
-    }, 200);
+    }, 300);
 
     return () => clearTimeout(timer);
   }, [searchCity]);
 
   const handleSubmit = (e: React.SubmitEvent) => {
     e.preventDefault();
-    if (!cities) return;
-    if (!cities.length) return;
+
+    if (isLoading || !cities?.length) return;
 
     onCitySelect(cities[0]);
     setSearchCity("");
