@@ -4,7 +4,7 @@ import { FaLocationArrow } from "react-icons/fa";
 
 const Navlinks = () => {
   return (
-    <ul className="flex items-center gap-3 md:gap-4 lg:gap-6">
+    <ul className="flex items-center gap-3 md:gap-4 lg:gap-5">
       {/* <li>
         <button
           type="button"
@@ -19,9 +19,12 @@ const Navlinks = () => {
           <button
             type="button"
             aria-label="Search"
-            className="text-muted rounded-full transition-colors hover:bg-white/10"
+            className="text-muted rounded-full"
           >
-            <IoSearch size={24} />
+            <IoSearch
+              size={24}
+              className="hover:text-text transition-all duration-300"
+            />
           </button>
         </li>
       </a>
@@ -30,9 +33,12 @@ const Navlinks = () => {
         <button
           type="button"
           aria-label="Use current location"
-          className="text-muted rounded-full transition-colors hover:bg-white/10"
+          className="text-accent rounded-full"
         >
-          <FaLocationArrow size={20} />
+          <FaLocationArrow
+            size={20}
+            className=" hover:text-text transition-all duration-300"
+          />
         </button>
       </li>
     </ul>
