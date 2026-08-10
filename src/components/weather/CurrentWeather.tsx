@@ -11,20 +11,19 @@ interface CurrentWeatherProps {
 }
 
 const CurrentWeather: React.FC<CurrentWeatherProps> = ({ data, city }) => {
-  // const date = new Date((data.dt + data.timezone) * 1000);
+  const date = new Date((data.dt + data.timezone) * 1000);
   const condition = data.weather[0];
 
   return (
     <section className="section relative z-10 min-h-[500px] md:min-h-[400px] animate-fade-up-1 pt-50">
       <div className=" flex flex-col md:flex-row justify-between items-center gap-0 md:gap-8 ">
         <div className="flex flex-col items-center md:items-start gap-3 md:gap-6">
-          <p className="text-sm md:text-base text-muted font-normal tracking-[0.1em]">
-            {/* {date.toLocaleDateString("en-US", {
+          <p className="text-sm md:text-base text-accent font-normal tracking-[0.1em]">
+            {date.toLocaleDateString("en-US", {
               weekday: "long",
               day: "numeric",
               month: "long",
-            })} */}
-            Right now
+            })}
           </p>
 
           <h1 className="font-light leading-none tracking-tight">
@@ -44,7 +43,7 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({ data, city }) => {
             </sup>
           </div>
           <div className="flex flex-col items-center -mt-4 gap-3 text-sm text-muted">
-            <span className="flex items-center gap-2 text-lg">
+            <span className="flex items-center gap-2 text-xl">
               Feels like:
               <span>{Math.round(data.main.feels_like)}°</span>
             </span>
