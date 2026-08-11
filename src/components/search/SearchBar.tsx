@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { FiSearch } from "react-icons/fi";
 import { useSearchCities } from "../../hooks/useSearchCities";
-import type { WeatherLocation } from "../../types/weatherApi.types";
+import { useLocation } from "../../context/LocationContext";
 import SearchResults from "./SearchResults";
-// import { IoClose } from "react-icons/io5";
 
 interface SearchBarProps {
-  onCitySelect: (city: WeatherLocation) => void;
+  className?: string;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ onCitySelect }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ className }) => {
+  const { selectCity } = useLocation();
   const [searchCity, setSearchCity] = useState("");
   const [debouncedCitySearch, setDebouncedCitySearch] = useState("");
 
@@ -32,15 +32,17 @@ const SearchBar: React.FC<SearchBarProps> = ({ onCitySelect }) => {
 
     if (isLoading || !cities?.length) return;
 
-    onCitySelect(cities[0]);
+    selectCity(cities[0]);
     setSearchCity("");
     setDebouncedCitySearch("");
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="relative mx-auto max-w-xl">
-        <div className="flex items-center rounded-md border border-white/15 px-4 py-3 md:py-4 backdrop-blur-md shadow-lg">
+      <div className="relative mx-auto max-w-xl  ">
+        <div
+          className={`relative z-30 flex items-center border border-white/15 rounded-md backdrop-blur-md px-4 ${className}`}
+        >
           <FiSearch size={25} className="mr-3 text-muted" />
 
           <input
@@ -57,11 +59,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ onCitySelect }) => {
         </div>
 
         {debouncedCitySearch && !isError && cities && cities.length > 0 && (
-          <div className="absolute left-0 top-full !z-50 mt-2 w-full">
+          <div className="absolute left-0 top-full z-40 mt-2 w-full overflow-hidden rounded-xl border border-white/10 bg-accent/20 shadow-xl backdrop-blur-xl ">
             <SearchResults
               cities={cities}
               onCitySelect={(city) => {
-                onCitySelect(city);
+                selectCity(city);
                 setSearchCity("");
                 setDebouncedCitySearch("");
               }}
@@ -70,7 +72,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onCitySelect }) => {
         )}
 
         {debouncedCitySearch && !isError && cities && cities.length === 0 && (
-          <p className="text-sm font-light text-red-400 tracking-wider mt-2">
+          <p className="absolute left-0 top-full mt-2 text-sm font-light tracking-wider text-red-400">
             City not found. Please try another city name
           </p>
         )}

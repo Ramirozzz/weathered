@@ -1,25 +1,34 @@
-import type { WeatherLocation } from "../../types/weatherApi.types";
-import Button from "../buttons/Button";
+import { useLocation } from "../../context/LocationContext";
 import SearchBar from "../search/SearchBar";
+import { FaLocationArrow } from "react-icons/fa";
 
-interface HeroProps {
-  onCitySelect: (city: WeatherLocation) => void;
-}
+const Hero = () => {
+  const { findMyLocation } = useLocation();
 
-const Hero: React.FC<HeroProps> = ({ onCitySelect }) => {
   return (
-    <section className="relative h-[720px] overflow-hidden md:h-screen animate-fade-in">
+    <section className="relative h-[720px] md:h-screen">
       <div className="relative z-10 flex h-full items-center justify-center px-4 pt-8 md:px-8 lg:px-30 lg:pt-16">
         <div className="max-w-4xl text-center">
           <h1 className="mb-6">Your Daily Weather</h1>
 
-          <p className="mx-auto max-w-sm md:max-w-2xl md:text-xl leading-relaxed mb-12 ">
+          <p className="mx-auto mb-12 max-w-sm leading-relaxed md:max-w-2xl md:text-xl">
             Get weathered with real-time forecasts, hourly updates, and weather
             conditions wherever you are.
           </p>
-          <SearchBar onCitySelect={onCitySelect} />
-          <div className="mt-10 ">
-            <Button title="Find my location" />
+
+          <div className="relative z-20">
+            <SearchBar className="max-w-xl py-3 shadow-lg md:py-4" />
+          </div>
+
+          <div className="relative z-10 mt-10">
+            <button
+              type="button"
+              onClick={findMyLocation}
+              className="mx-auto mt-4 flex items-center gap-2 text-base text-muted transition-colors hover:text-text"
+            >
+              <FaLocationArrow size={16} color="var(--color-accent)" />
+              Use my location
+            </button>
           </div>
         </div>
       </div>

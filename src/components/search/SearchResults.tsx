@@ -12,7 +12,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   return (
     <div>
       {cities && cities.length > 0 && (
-        <div className="absolute left-0 top-full z-50 mt-2 w-full overflow-hidden rounded-xl border border-white/10 bg-accent/15 shadow-xl backdrop-blur-3xl">
+        <div>
           {cities.map((city) => (
             <button
               key={`${city.lat}-${city.lon}`}
