@@ -55,9 +55,6 @@ const DailyForecast: React.FC<DailyForecastProps> = ({
               <div className=" text-xs text-muted mt-2">
                 {day.weather[0].description}
               </div>
-              {/* <div className="mt-3 h-[2px] rounded-full overflow-hidden">
-                <div className="h-full rounded-full transition-all duration-1000 ease-out" />
-              </div> */}
             </div>
           );
         })}
