@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import type { WeatherLocation } from "../types/weatherApi.types";
 import { useWeather } from "../hooks/useWeather";
 import Hero from "../components/Hero/Hero";
 import CurrentWeather from "../components/weather/CurrentWeather";
@@ -11,13 +10,12 @@ import { useForecast } from "../hooks/useForecast";
 import HourlyForecast from "../components/weather/HourlyForecast";
 import SunriseSunset from "../components/weather/SunriseSunset";
 import { useSearchCities } from "../hooks/useSearchCities";
+import { useLocation } from "../context/LocationContext";
 
 const HomePage = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const { selectedCity, selectCity } = useLocation();
 
-  const [selectedCity, setSelectedCity] = useState<WeatherLocation | null>(
-    null,
-  );
+  const [searchParams] = useSearchParams();
 
   const [selectedDay, setSelectedDay] = useState<string | null>(null);
 
@@ -43,19 +41,10 @@ const HomePage = () => {
     refetch: refetchForecast,
   } = useForecast(selectedCity?.lat ?? 0, selectedCity?.lon ?? 0);
 
-  const handleSelectedCity = (city: WeatherLocation) => {
-    setSelectedCity(city);
-    setSelectedDay(null);
-
-    setSearchParams({
-      city: city.name,
-    });
-  };
-
   // Get the selected city from the URL after page reload
   useEffect(() => {
     if (city && cities?.length && !selectedCity) {
-      setSelectedCity(cities[0]);
+      selectCity(cities[0]);
     }
   }, [city, cities, selectedCity]);
 
@@ -102,7 +91,7 @@ const HomePage = () => {
   }
 
   if (!selectedCity) {
-    return <Hero onCitySelect={handleSelectedCity} />;
+    return <Hero />;
   }
 
   if (isWeatherLoading || isForecastLoading) {

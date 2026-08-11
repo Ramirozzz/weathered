@@ -19,6 +19,22 @@ export const searchCities = async (
   return res.data;
 };
 
+// Get the city information from coordinates
+export const getLocationFromCoordinates = async (
+  lat: number,
+  lon: number,
+): Promise<WeatherLocation> => {
+  const res = await api.get("/geo/1.0/reverse", {
+    params: {
+      lat,
+      lon,
+      limit: 1,
+    },
+  });
+
+  return res.data[0];
+};
+
 // Get weatherData
 
 export const getWeatherData = async (lat: number, lon: number) => {
