@@ -13,7 +13,7 @@ const WeatherCondition: React.FC<WeatherConditionProps> = ({ data }) => {
         src={`https://openweathermap.org/img/wn/${data.icon}@2x.png`}
         title={data.main}
       />
-      <span className="text-lg text-text italic font-light">
+      <span className="text-lg md:text-xl text-text italic font-light">
         {data.description}
       </span>
     </div>
