@@ -59,7 +59,10 @@ const WeatherStats: React.FC<WeatherStatsprops> = ({ data }) => {
       </h2> */}
       <div className=" grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3">
         {stats.map(({ label, value, unit }) => (
-          <div className=" border border-border rounded-sm p-4 bg-card-bg backdrop-blur-sm transition-all duration-300 ">
+          <div
+            key={label}
+            className="border border-border rounded-sm p-4 bg-card-bg backdrop-blur-sm transition-all duration-300 "
+          >
             <div className="text-xs text-muted tracking-[0.25em] font-secondary uppercase mb-3">
               {label}
             </div>
