@@ -6,7 +6,7 @@ const Hero = () => {
   const { findMyLocation } = useLocation();
 
   return (
-    <section className="relative h-[720px] md:h-screen">
+    <section className="relative h-[720px] md:h-screen animate-fade-up-3">
       <div className="relative z-10 flex h-full items-center justify-center px-4 pt-8 md:px-8 lg:px-30 lg:pt-16">
         <div className="max-w-4xl text-center">
           <h1 className="mb-6">Your Daily Weather</h1>
@@ -24,7 +24,7 @@ const Hero = () => {
             <button
               type="button"
               onClick={findMyLocation}
-              className="mx-auto mt-4 flex items-center gap-2 text-base text-muted transition-colors hover:text-text"
+              className="mx-auto mt-4 flex items-center gap-2 text-base text-text transition-colors hover:text-muted"
             >
               <FaLocationArrow size={16} color="var(--color-accent)" />
               Use my location
