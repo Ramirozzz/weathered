@@ -1,4 +1,4 @@
-import loading from "../../assets/backgrounds/loading.gif";
+import loading from "../../assets/images/loading.gif";
 const CurrentWeatherLoading = () => {
   return (
     <div className="relative z-20 flex justify-center h-screen items-center">
