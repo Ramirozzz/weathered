@@ -11,7 +11,7 @@ const queryClient = new QueryClient({
     queries: {
       refetchOnWindowFocus: false,
       gcTime: 1000 * 60 * 60,
-      staleTime: 1000 * 60 * 20,
+      staleTime: 1000 * 60 * 10,
     },
   },
 });
