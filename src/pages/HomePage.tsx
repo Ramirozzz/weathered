@@ -4,13 +4,13 @@ import { useWeather } from "../hooks/useWeather";
 import Hero from "../components/Hero/Hero";
 import CurrentWeather from "../components/weather/CurrentWeather";
 import CurrentWeatherLoading from "../components/Loading/CurrentWeatherLoading";
-import DailyForecast from "../components/weather/DailyForecast";
 import WeatherStats from "../components/weather/WeatherStats";
 import { useForecast } from "../hooks/useForecast";
-import HourlyForecast from "../components/weather/HourlyForecast";
 import SunriseSunset from "../components/weather/SunriseSunset";
 import { useSearchCities } from "../hooks/useSearchCities";
 import { useLocation } from "../context/LocationContext";
+import Footer from "../components/footer/Footer";
+import Forecast from "../components/weather/Forecast";
 
 const HomePage = () => {
   const { selectedCity, selectCity } = useLocation();
@@ -120,12 +120,15 @@ const HomePage = () => {
       <CurrentWeather data={weather} city={selectedCity} />
       <WeatherStats data={weather} />
       <SunriseSunset data={weather} />
-      <DailyForecast
+
+      <Forecast
         forecast={dailyForecast}
         onDaySelect={setSelectedDay}
         selectedDay={selectedDay}
+        hourly={hourlyForecast}
       />
-      <HourlyForecast key={selectedDay} hourly={hourlyForecast} />
+
+      <Footer />
     </div>
   );
 };

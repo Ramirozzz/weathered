@@ -17,10 +17,10 @@ const formatTime = (dateTime: string) => {
 
 const HourlyForecast: React.FC<HourlyForecastProps> = ({ hourly }) => {
   return (
-    <section className="section pt-4 md:pt-0">
-      <h2 className="text-xs text-text tracking-[0.2em] uppercase mb-4">
+    <div className="pt-10">
+      <h2 className="text-xs text-text font-normal tracking-[0.2em] uppercase mb-4">
         3-Hour Forecast •{" "}
-        <span className="text-muted">
+        <span className="text-text font-normal">
           {hourly.length > 0 && formatForecastDateTime(hourly[0].dt_txt)}
         </span>
       </h2>
@@ -55,7 +55,7 @@ const HourlyForecast: React.FC<HourlyForecastProps> = ({ hourly }) => {
         {hourly.map((hour, index) => (
           <SwiperSlide key={hour.dt}>
             <div
-              className="relative overflow-hidden p-3 text-center border border-border rounded-sm bg-card-bg backdrop-blur-sm animate-fade-up-1"
+              className="relative overflow-hidden p-3 text-center border border-border rounded-xl backdrop-blur-sm animate-fade-up-1"
               style={{
                 animationDelay: `${index * 50}ms`,
               }}
@@ -82,7 +82,7 @@ const HourlyForecast: React.FC<HourlyForecastProps> = ({ hourly }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </section>
+    </div>
   );
 };
 
