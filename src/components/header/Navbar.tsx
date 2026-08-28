@@ -4,7 +4,6 @@ import { FaLocationArrow } from "react-icons/fa";
 import SearchBar from "../search/SearchBar";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
-// import logo from "../../assets/images/logo3.png";
 
 const Navbar = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
@@ -18,10 +17,6 @@ const Navbar = () => {
     <nav className="fixed inset-x-0 top-0 z-50 h-20 px-4 py-6 animate-fade-down md:px-8 md:py-8 lg:px-16 lg:py-10">
       <div className="relative flex items-center justify-between pb-6">
         <a href="/">
-          {/* <div className="w-7 h-5">
-            <img src={logo} className="w-full" alt="logo" />
-          </div> */}
-
           <span className="text-lg md:text-xl uppercase tracking-widest text-muted transition-opacity hover:opacity-80">
             Weathered
           </span>
