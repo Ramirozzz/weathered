@@ -12,8 +12,9 @@ const WeatherCondition: React.FC<WeatherConditionProps> = ({ data }) => {
         alt={data.main}
         src={`https://openweathermap.org/img/wn/${data.icon}@2x.png`}
         title={data.main}
+        className="hidden md:block"
       />
-      <span className="text-lg md:text-xl text-text italic font-light">
+      <span className="text-lg md:text-xl text-muted italic font-light mt-4">
         {data.description}
       </span>
     </div>

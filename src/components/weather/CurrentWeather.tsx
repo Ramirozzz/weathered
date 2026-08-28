@@ -15,10 +15,10 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({ data, city }) => {
   const condition = data.weather[0];
 
   return (
-    <section className="section relative z-10 min-h-[500px] md:min-h-[400px] animate-fade-up-1 pt-50">
+    <section className="section relative z-10 min-h-[500px] md:min-h-[400px] animate-fade-up-1 pt-40 lg:pt-55 pb-15 ">
       <div className=" flex flex-col md:flex-row justify-between items-center gap-0 md:gap-8 ">
-        <div className="flex flex-col items-center md:items-start gap-3 md:gap-6">
-          <p className="text-sm md:text-base text-accent font-normal tracking-[0.1em]">
+        <div className="flex flex-col items-center md:items-start gap-0 md:gap-6">
+          <p className="text-sm md:text-base text-muted font-normal tracking-[0.1em] mb-3">
             {date.toLocaleDateString("en-US", {
               weekday: "long",
               day: "numeric",
