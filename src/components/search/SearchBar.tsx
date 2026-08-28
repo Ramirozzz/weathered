@@ -6,9 +6,13 @@ import SearchResults from "./SearchResults";
 
 interface SearchBarProps {
   className?: string;
+  onCompletedSearch?: () => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ className }) => {
+const SearchBar: React.FC<SearchBarProps> = ({
+  className,
+  onCompletedSearch,
+}) => {
   const { selectCity } = useLocation();
   const [searchCity, setSearchCity] = useState("");
   const [debouncedCitySearch, setDebouncedCitySearch] = useState("");
@@ -59,11 +63,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ className }) => {
         </div>
 
         {debouncedCitySearch && !isError && cities && cities.length > 0 && (
-          <div className="absolute left-0 top-full z-40 mt-2 w-full overflow-hidden rounded-xl border border-white/10 bg-accent/20 shadow-xl backdrop-blur-xl ">
+          <div className="absolute left-0 top-full z-40 mt-2 w-full overflow-hidden rounded-xl border border-white/10 bg-accent/15 shadow-xl backdrop-blur-xl ">
             <SearchResults
               cities={cities}
               onCitySelect={(city) => {
                 selectCity(city);
+                onCompletedSearch?.();
                 setSearchCity("");
                 setDebouncedCitySearch("");
               }}
