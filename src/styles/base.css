@@ -3,7 +3,8 @@
     scroll-behavior: smooth;
   }
 
-  body {
+  /* body {
+    background: #0e0f18;
     background-image: url(../assets/images/bg.jpg);
     min-height: 100vh;
     background-size: cover;
@@ -12,6 +13,24 @@
     background-attachment: fixed;
     color: var(--color-text);
     font-family: var(--font-primary);
+  } */
+
+  body {
+    background: #101c25;
+    color: var(--color-text);
+    font-family: var(--font-primary);
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background-image: url("../assets/images/bg11.jpg");
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
   }
 
   /* h1,
@@ -21,9 +40,9 @@
   } */
 
   h1 {
-    font-size: clamp(3rem, 7vw, 5rem);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: bold;
-    line-height: 1;
+    line-height: 1.1;
   }
 
   h2 {
@@ -33,7 +52,7 @@
   }
 
   p {
-    font-size: clamp(1.1rem, 0.7rem + 0.4vw, 1.1rem);
+    font-size: clamp(0.93rem, 0.7rem + 0.4vw, 1.1rem);
     color: var(--color-muted);
     font-weight: 500;
   }
