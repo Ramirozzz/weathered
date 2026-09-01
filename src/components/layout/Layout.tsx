@@ -6,7 +6,7 @@ const Layout = () => {
   return (
     <div className="relative z-10 min-h-screen">
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/75" />
+      <div className="absolute inset-0 bg-black/60" />
 
       <div className="relative z-10 grid min-h-screen grid-rows-[auto_1fr_auto] px-4 md:px-8 lg:px-16">
         <header>
