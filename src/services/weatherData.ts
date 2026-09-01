@@ -38,7 +38,7 @@ export const getLocationFromCoordinates = async (
 // Get weatherData
 
 export const getWeatherData = async (lat: number, lon: number) => {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 1500));
   const res = await api.get<CurrentWeatherData>("/data/2.5/weather", {
     params: {
       lat,
