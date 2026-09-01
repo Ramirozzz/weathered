@@ -20,7 +20,7 @@ const SunriseSunset: React.FC<SunriseSunsetProps> = ({ data }) => {
       </h2>
 
       <div className="grid grid-cols-2 gap-3">
-        <div className="border border-border bg-card-bg p-5 rounded-xl">
+        <div className="border border-border bg-card-bg backdrop-blur-sm rounded-xl py-5 px-4">
           <p className="text-xs text-muted uppercase tracking-[0.2em]">
             Sunrise
           </p>
@@ -30,7 +30,7 @@ const SunriseSunset: React.FC<SunriseSunsetProps> = ({ data }) => {
           </p>
         </div>
 
-        <div className="border border-border bg-card-bg p-5 rounded-xl">
+        <div className="border border-border bg-card-bg backdrop-blur-sm rounded-xl py-5 px-4">
           <p className="text-xs text-muted uppercase tracking-[0.2em]">
             Sunset
           </p>

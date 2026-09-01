@@ -20,7 +20,7 @@ const Forecast: React.FC<ForecastProps> = ({
       <h2 className="text-sm text-text tracking-[0.3em] uppercase mb-4">
         5-Day Outlook
       </h2>
-      <div className="bg-card-bg border border-border rounded-xl px-4 py-8">
+      <div className="bg-card-bg backdrop-blur-sm border border-border rounded-xl px-4 py-8">
         <DailyForecast
           forecast={forecast}
           onDaySelect={onDaySelect}

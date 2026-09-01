@@ -36,7 +36,7 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({ data, city }) => {
           </div>
         </div>
         <div className="flex flex-col items-center">
-          <div className="text-text font-light text-[clamp(5rem,12vw,9rem)]">
+          <div className="text-text font-light text-[clamp(4.5rem,12vw,9rem)]">
             {Math.round(data.main.temp)}
             <sup className="text-3xl md:text-[0.28em] align-super text-accent">
               °C
