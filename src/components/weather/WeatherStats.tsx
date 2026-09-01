@@ -5,21 +5,6 @@ interface WeatherStatsprops {
 }
 const WeatherStats: React.FC<WeatherStatsprops> = ({ data }) => {
   const stats = [
-    // {
-    //   label: "Tempreture",
-    //   value: Math.round(data.main.temp),
-    //   unit: "°C",
-    // },
-    // {
-    //   label: "Max tempreture",
-    //   value: Math.round(data.main.temp_max),
-    //   unit: "°C",
-    // },
-    // {
-    //   label: "Min tempreture",
-    //   value: Math.round(data.main.temp_min),
-    //   unit: "°C",
-    // },
     {
       label: "Feels Like",
       value: Math.round(data.main.feels_like),
