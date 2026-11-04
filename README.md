@@ -1,32 +1,24 @@
-# React + TypeScript + Vite
+# Weathered
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A weather forecast app built with React and TypeScript, using the OpenWeather API to provide current weather conditions and forecasts for different locations.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌐 Live Demo
 
-## React Compiler
+[**Visit Weathered ↗**](https://get-weathered.netlify.app)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the Oxlint configuration
+- Get local weather forecasts based on your current location.
+- Browse weather information for different locations.
+- Search for weather by city.
+- View current weather conditions.
+- Check hourly and daily forecasts.
+- View temperature, humidity, wind speed, and other weather details.
+- Responsive design for different screen sizes.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+## 🛠️ Tech Stack
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+- **Frontend:** React, TypeScript, Vite, Tailwind CSS.
+- **Libraries:** TanStack Query, React Router, Axios, OpenWeather API.
